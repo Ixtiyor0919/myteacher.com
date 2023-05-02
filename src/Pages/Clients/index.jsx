@@ -1,10 +1,12 @@
 import { message } from "antd";
 import { useState } from "react";
 import instance from "../../Api/Axios";
+import { useData } from "../../Hooks/UseData";
 import { useNavigate } from "react-router-dom";
 import CustomTable from "../../Modules/Table/Table";
 
 const Clients = () => {
+    const { coursesData } = useData();
     const [pageData, setPageData] = useState({
         data: [],
         loading: true,
@@ -18,7 +20,7 @@ const Clients = () => {
         instance
             .get("clients")
             .then((data) => {
-                console.log("clients: ", data)
+                // console.log("clients: ", data)
                 setPageData((prev) => ({
                     ...prev,
                     data: data.data,
@@ -35,16 +37,12 @@ const Clients = () => {
     };
 
     const onCreate = (values) => {
-        const value = {
-            ...values,
-            photoId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        };
         setPageData((prev) => ({ ...prev, loading: true }));
         instance
-            .post("clients", { ...value })
+            .post("clients", { ...values })
             .then(function (response) {
                 message.success("Mijoz muvaffaqiyatli qo'shildi");
-                getCategorys(pageData.current - 1, pageData.pageSize);
+                getCategorys();
             })
             .catch(function (error) {
                 console.error(error);
@@ -64,7 +62,7 @@ const Clients = () => {
             })
             .then((res) => {
                 message.success("Mijoz muvaffaqiyatli taxrirlandi");
-                getCategorys(pageData.current - 1, pageData.pageSize);
+                getCategorys();
             })
             .catch(function (error) {
                 console.error("Error in edit: ", error);
@@ -82,7 +80,7 @@ const Clients = () => {
             instance
                 .delete(`clients/${item}`)
                 .then((data) => {
-                    getCategorys(pageData.current - 1, pageData.pageSize);
+                    getCategorys();
                     message.success("Mijoz muvaffaqiyatli o'chirildi");
                 })
                 .catch((error) => {
@@ -137,6 +135,10 @@ const Clients = () => {
             key: "course",
             width: "20%",
             search: true,
+            render: (record) => {
+                const data = coursesData?.filter((item) => item.id === record);
+                return data[0]?.name;
+            },
             sorter: (a, b) => {
                 if (a.course < b.course) {
                     return -1;

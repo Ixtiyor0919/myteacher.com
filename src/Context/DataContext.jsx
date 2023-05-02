@@ -1,41 +1,44 @@
-import React, { createContext, useEffect, useState } from "react";
-import instance from "../Api/Axios";
+import React, { createContext } from "react";
 
 export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
-
-    const [usersData, setUsersData] = React.useState([]);
-    const [clientsData, setClientsData] = React.useState([]);
-    const getUsersData = () => {
-        instance
-            .get("users")
-            .then((data) => {
-                setUsersData(data);
-            })
-            .catch((err) => console.error(err));
-    };
-
-    const getClientsData = () => {
-        instance
-            .get("clients")
-            .then((data) => {
-                setClientsData(data);
-            })
-            .catch((err) => console.error(err));
-    };
-
-
-    React.useEffect(() => {
-        getUsersData();
-        getClientsData();
-    }, []);
+    const rolesData = [
+        {
+            id: 1,
+            name: "Admin",
+        },
+        {
+            id: 2,
+            name: 'Manager',
+        },
+        {
+            id: 3,
+            name: 'Operator',
+        },
+        {
+            id: 4,
+            name: 'Tutor',
+        }
+    ]
+    const coursesData = [
+        {
+            id: 1,
+            name: "English",
+        },
+        {
+            id: 2,
+            name: 'Russian',
+        },
+        {
+            id: 3,
+            name: 'O\'zbek',
+        },
+    ]
 
     const value = {
-        getUsersData,
-        getClientsData,
-        usersData,
-        clientsData
+        rolesData,
+        coursesData,
     };
 
     return (
