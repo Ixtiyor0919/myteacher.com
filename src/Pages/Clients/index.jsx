@@ -15,7 +15,7 @@ const Clients = () => {
     });
     const navigate = useNavigate();
 
-    const getCategorys = () => {
+    const getResponse = () => {
         setPageData((prev) => ({ ...prev, loading: true }));
         instance
             .get("clients")
@@ -42,7 +42,7 @@ const Clients = () => {
             .post("clients", { ...values })
             .then(function (response) {
                 message.success("Mijoz muvaffaqiyatli qo'shildi");
-                getCategorys();
+                getResponse();
             })
             .catch(function (error) {
                 console.error(error);
@@ -62,7 +62,7 @@ const Clients = () => {
             })
             .then((res) => {
                 message.success("Mijoz muvaffaqiyatli taxrirlandi");
-                getCategorys();
+                getResponse();
             })
             .catch(function (error) {
                 console.error("Error in edit: ", error);
@@ -80,7 +80,7 @@ const Clients = () => {
             instance
                 .delete(`clients/${item}`)
                 .then((data) => {
-                    getCategorys();
+                    getResponse();
                     message.success("Mijoz muvaffaqiyatli o'chirildi");
                 })
                 .catch((error) => {
@@ -190,7 +190,7 @@ const Clients = () => {
                 <CustomTable
                     columns={columns}
                     pageSizeOptions={[10, 20]}
-                    getData={getCategorys}
+                    getData={getResponse}
                     onDelete={handleDelete}
                     onCreate={onCreate}
                     onEdit={onEdit}
