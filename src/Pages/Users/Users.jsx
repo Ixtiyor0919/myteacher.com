@@ -15,7 +15,7 @@ const Users = () => {
     });
     const navigate = useNavigate();
 
-    const getCategorys = () => {
+    const getResponse = () => {
         setPageData((prev) => ({ ...prev, loading: true }));
         instance
             .get("users")
@@ -42,7 +42,7 @@ const Users = () => {
             .post("users", { ...values })
             .then(function (response) {
                 message.success("Xodim muvaffaqiyatli qo'shildi");
-                getCategorys();
+                getResponse();
             })
             .catch(function (error) {
                 console.error(error);
@@ -62,7 +62,7 @@ const Users = () => {
             })
             .then((res) => {
                 message.success("Xodim muvaffaqiyatli taxrirlandi");
-                getCategorys();
+                getResponse();
             })
             .catch(function (error) {
                 console.error("Error in edit: ", error);
@@ -80,7 +80,7 @@ const Users = () => {
             instance
                 .delete(`users/${item}`)
                 .then((data) => {
-                    getCategorys();
+                    getResponse();
                     message.success("Xodim muvaffaqiyatli o'chirildi");
                 })
                 .catch((error) => {
@@ -158,7 +158,7 @@ const Users = () => {
                 <CustomTable
                     columns={columns}
                     pageSizeOptions={[10, 20]}
-                    getData={getCategorys}
+                    getData={getResponse}
                     onDelete={handleDelete}
                     onCreate={onCreate}
                     onEdit={onEdit}
