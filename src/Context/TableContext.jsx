@@ -1,4 +1,4 @@
-import { Input } from "antd";
+import { Input, InputNumber } from "antd";
 import { createContext } from "react";
 import { useData } from "../Hooks/UseData";
 import { useLocation } from "react-router-dom";
@@ -102,7 +102,7 @@ export const TableProvider = ({ children }) => {
             name: "age",
             label: "Mijoz yoshi",
             required: true,
-            input: <Input placeholder="Mijoz yoshini kiriting" />,
+            input: <InputNumber placeholder="Mijoz yoshini kiriting" />,
         },
         {
             name: "location",
@@ -144,7 +144,7 @@ export const TableProvider = ({ children }) => {
             name: "age",
             label: "Mijoz yoshi",
             required: true,
-            input: <Input placeholder="Mijoz yoshini kiriting" />,
+            input: <InputNumber placeholder="Mijoz yoshini kiriting" />,
         },
         {
             name: "location",
