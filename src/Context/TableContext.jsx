@@ -102,7 +102,7 @@ export const TableProvider = ({ children }) => {
             name: "age",
             label: "Mijoz yoshi",
             required: true,
-            input: <InputNumber placeholder="Mijoz yoshini kiriting" />,
+            input: <InputNumber style={{width: "100%"}} placeholder="Mijoz yoshini kiriting" />,
         },
         {
             name: "location",
@@ -144,7 +144,7 @@ export const TableProvider = ({ children }) => {
             name: "age",
             label: "Mijoz yoshi",
             required: true,
-            input: <InputNumber placeholder="Mijoz yoshini kiriting" />,
+            input: <InputNumber style={{width: "100%"}} placeholder="Mijoz yoshini kiriting" />,
         },
         {
             name: "location",

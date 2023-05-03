@@ -369,39 +369,6 @@ const CustomTable = (props) => {
                         />
                     ) : null}
                 </Space>
-                {/* <Space align="center" size="middle" className="new-buttons">
-                    {formData?.customSelect ? (
-                        selectedRowKeys[0]?.length === 1 ? (
-                            <EditData
-                                selectedRowKeys={{ ...selectedRowKeys[1][0] }}
-                                onEdit={onEdit}
-                                editData={formData?.editFormData}
-                                editModalTitle={formData?.editModalTitle}
-                            />
-                        ) : null
-                    ) : null}
-                    {formData?.deleteInfo ? (
-                        <Button
-                            className="add-button"
-                            icon={<DeleteOutlined />}
-                            type="primary"
-                            danger
-                            onClick={() => {
-                                onDelete(selectedRowKeys[0]);
-                                setSelectedRowKeys([[], []]);
-                            }}
-                        >
-                            O'chirish
-                        </Button>
-                    ) : null}
-                    {formData?.createInfo ? (
-                        <AddData
-                            onCreate={onCreate}
-                            formData={formData?.formData}
-                            modalTitle={formData?.modalTitle}
-                        />
-                    ) : null}
-                </Space> */}
             </Space>
             <Table
                 rowSelection={rowSelection}
