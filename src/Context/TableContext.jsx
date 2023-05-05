@@ -1,5 +1,5 @@
-import { Input, InputNumber } from "antd";
 import { createContext } from "react";
+import { Input, InputNumber } from "antd";
 import { useData } from "../Hooks/UseData";
 import { useLocation } from "react-router-dom";
 import CustomSelect from "../Modules/Select/Select";
@@ -168,7 +168,7 @@ export const TableProvider = ({ children }) => {
                 editInfo: true,
                 timelyInfo: false,
                 auditInfo: true,
-                editModalTitle: "Auditing",
+                editModalTitle: "Mijozlar",
                 modalTitle: "Mijoz qo'shish",
             };
             break;
@@ -183,7 +183,7 @@ export const TableProvider = ({ children }) => {
                 createInfo: true,
                 editInfo: true,
                 timelyInfo: false,
-                editModalTitle: "Auditing",
+                editModalTitle: "Xodimlar",
                 modalTitle: "Xodim qo'shish",
             };
             break;

@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 // ==============================|| NAVIGATION - SCROLL TO TOP ||============================== //
 
-const ScrollTop = ({ children }) => {
+const ScrollToTop = ({ children }) => {
     const location = useLocation();
     const { pathname } = location;
 
@@ -19,8 +19,8 @@ const ScrollTop = ({ children }) => {
     return children || null;
 };
 
-ScrollTop.propTypes = {
+ScrollScrollToTopTop.propTypes = {
     children: PropTypes.node
 };
 
-export default ScrollTop;
+export default ScrollToTop;

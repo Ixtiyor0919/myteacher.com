@@ -71,7 +71,8 @@ export const ProfileCardWidget = (props) => {
             <Box sx={{height: '100%',}}>
                 <Card sx={{width: '200px', height: '200px', cursor: 'pointer'}} aria-label="upload picture" component="label">
                     <CardMedia component='img' image={previewBackground} height="230" sx={{borderTopLeftRadius: '15px', borderTopRightRadius: '15px'}} />
-                        <input 
+                        <Box
+                            component="input" 
                             hidden
                             type="file" 
                             onChange={(e) => {setBackground(e.target.files[0])}} 
@@ -83,7 +84,8 @@ export const ProfileCardWidget = (props) => {
                 <CardContent sx={{textAlign: 'center', marginTop: '-70px'}}>
                     <Card sx={{width: 100, height: 100, display: 'inline-block', borderRadius: '50%', cursor: 'pointer'}} aria-label="upload picture" component="label">
                         <Avatar sx={{ width: 100, height: 100 }} alt="profile image" src={preview && avatarUrl(userData?.photoId)} />
-                        <input hidden type="file" name='profileImage' onChange={handleImageChange} />
+                        <Box
+                            component="input"  hidden type="file" name='profileImage' onChange={handleImageChange} />
                     </Card>
                     <Typography variant="h5">{name}</Typography>
                     <Typography variant="body2">{job}</Typography>
